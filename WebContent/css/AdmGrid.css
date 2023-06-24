@@ -1,0 +1,38 @@
+.td_toggle .toggle {
+	width: 32px;
+	height: 32px;
+	border: none;
+	margin-left: 12px;
+	background: url(../Images/delete.png) no-repeat;
+	cursor: pointer;
+}
+
+.td_toggle .readonly {
+	cursor: default;
+}
+
+.td_toggle .true {
+	background-image:url(../Images/ok.png);
+}
+
+.pagination-container {
+	display: inline-block;
+}
+
+.pagination {
+	margin: 0;
+}
+
+#noiDungl .dd-item > button {
+	font-family: FontAwesome;
+	color: #1ab395;
+}
+
+#noiDungl .dd-item > button:before {
+	content: "\f054";
+}
+
+#noiDungl .dd-item > button[data-action="collapse"]:before {
+	content: "\f078";
+}
+

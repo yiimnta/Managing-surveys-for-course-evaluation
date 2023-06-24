@@ -1,0 +1,25 @@
+ChiTietKetQua: Result detail
+
+GiangDay: Teaching plan
+
+GiangVien: Lecturer
+
+GopY: Feedback
+
+KetQua: Result
+
+KhoaHoc: Course
+
+LoaiPhieu: Evaluation type
+
+Lop: Class
+
+MonHoc: Subject
+
+NguoiDung: User
+
+NoiDung: Content
+
+PhieuDanhGia: Evaluation
+
+shared

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+       
+<tiles-definitions>
+<!-- Layout man hinh quan ly -->
+    <definition name="baseAdmDef" path="/adm/shared/layout.jsp">
+        <put name="pageHeader" value="/adm/shared/pageHeader.jsp"/>
+        <put name="navigation" value="/adm/shared/navigation.jsp"/>
+        <put name="navBarHeader" value="/adm/shared/navBarHeader.jsp" />
+        <put name="footer" value="/adm/shared/footer.jsp"/>
+        <put name="body" value=""/>
+    </definition>
+<!-- Het layout man hinh quan ly -->
+
+<!-- Layout man hinh chính front -->
+    <definition name="baseFrontDef" path="/front/shared/layout.jsp">
+        <put name="navigation" value="/front/shared/navigation.jsp"/>
+        <put name="footer" value="/front/shared/footer.jsp"/>
+        <put name="body" value=""/>
+    </definition>
+<!-- Het layout man hinh chính front -->
+
+<!-- FRONT -->
+	<!-- Home front end -->
+		<definition name="homeFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/home.jsp" />
+		</definition>
+	<!-- end home front end -->
+	
+	<!-- Info front end -->
+		<definition name="infoFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/info.jsp" />
+		</definition>
+	<!-- end Info front end -->
+	
+	<!-- Đánh giá front end -->
+		<definition name="dsPdgFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/PhieuDanhGia/index.jsp" />
+		</definition>
+		
+		<definition name="pdgFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/PhieuDanhGia/phieuDanhGia.jsp" />
+		</definition>
+	<!-- end Đánh giá front end -->
+	
+	<!-- Kết quả front end -->
+		<definition name="xemKQFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/PhieuDanhGia/xemKetQua.jsp" />
+		</definition>
+	<!-- end Đánh giá front end -->
+	
+	<!-- feedBack front end -->
+		<definition name="feedBackFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/feedBack.jsp" />
+		</definition>
+	<!-- end feedBack front end -->
+	
+	<!-- Contact front end -->
+		<definition name="contactFPage" extends="baseFrontDef" >
+			<put name="body" value="/front/contact.jsp" />
+		</definition>
+	<!-- end Contact front end -->
+
+<!-- END FRONT -->
+    
+<!-- Home back end -->
+	<definition name="homePage" extends="baseAdmDef" >
+		<put name="body" value="/adm/home.jsp" />
+	</definition>
+<!-- end home back end -->
+
+<!-- Quan ly Khóa học -->
+	<definition name="dsKhoaHoc" extends="baseAdmDef">
+		<put name="body" value="/adm/KhoaHoc/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Khóa học -->
+
+<!-- Quan ly Lớp học-->
+	<definition name="dsLop" extends="baseAdmDef">
+		<put name="body" value="/adm/Lop/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Lớp học -->
+
+<!-- Quan ly Môn học -->
+	<definition name="dsMonHoc" extends="baseAdmDef">
+		<put name="body" value="/adm/MonHoc/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Môn học -->
+    
+<!-- Quan ly nguoi dung -->
+    <definition name="dsNguoiDung" extends="baseAdmDef">
+    	<put name="body" value="/adm/NguoiDung/list.jsp" />
+    </definition>
+    
+    <definition name="themNguoiDung" extends="baseAdmDef">
+    	<put name="body" value="/adm/NguoiDung/add.jsp" />
+    </definition>
+    
+    <definition name="suaNguoiDung" extends="baseAdmDef">
+    	<put name="body" value="/adm/NguoiDung/update.jsp" />
+    </definition>
+<!-- Het quan ly mat hang -->
+
+<!-- Quan ly Giang vien -->
+    <definition name="dsGiangVien" extends="baseAdmDef">
+    	<put name="body" value="/adm/GiangVien/list.jsp" />
+    </definition>
+<!-- Het quan ly Giang vien -->
+
+<!-- Quan ly Giang day -->
+    <definition name="dsGiangDay" extends="baseAdmDef">
+    	<put name="body" value="/adm/GiangDay/list.jsp" />
+    </definition>
+    
+    <definition name="themGiangDay" extends="baseAdmDef">
+    	<put name="body" value="/adm/GiangDay/add.jsp" />
+    </definition>
+    
+    <definition name="suaGiangDay" extends="baseAdmDef">
+    	<put name="body" value="/adm/GiangDay/update.jsp" />
+    </definition>
+<!-- Het quan ly Giang day -->
+
+<!-- Quan ly Loại phiếu đánh gia -->
+	<definition name="dsLoaiPhieu" extends="baseAdmDef">
+		<put name="body" value="/adm/LoaiPhieu/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Loại phiếu đánh gia -->
+
+<!-- Quan ly Phieu danh gia -->
+    <definition name="dsPhieuDanhGia" extends="baseAdmDef">
+    	<put name="body" value="/adm/PhieuDanhGia/list.jsp" />
+    </definition>
+    
+    <definition name="themPhieuDanhGia" extends="baseAdmDef">
+    	<put name="body" value="/adm/PhieuDanhGia/add.jsp" />
+    </definition>
+    
+    <definition name="suaPhieuDanhGia" extends="baseAdmDef">
+    	<put name="body" value="/adm/PhieuDanhGia/update.jsp" />
+    </definition>
+    
+    <definition name="thongKePhieu" extends="baseAdmDef">
+		<put name="body" value="/adm/NoiDung/thongKe.jsp" />
+	</definition>
+<!-- Het quan ly Phieu danh gia -->
+
+<!-- Quan ly Nội dung phiếu đánh gia -->
+	<definition name="dsNoiDung" extends="baseAdmDef">
+		<put name="body" value="/adm/NoiDung/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Nội dung phiếu đánh gia -->
+
+<!-- Quan ly kết quả phiếu đánh gia -->
+	<definition name="dsKetQua" extends="baseAdmDef">
+		<put name="body" value="/adm/KetQua/list.jsp" />
+	</definition>
+
+<!-- Het quan ly kết quả phiếu đánh gia -->
+
+<!-- Quan ly Chi tiết kết quả phiếu đánh gia -->
+	<definition name="dsChiTietKetQua" extends="baseAdmDef">
+		<put name="body" value="/adm/ChiTietKetQua/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Chi tiết kết quả phiếu đánh gia -->
+
+<!-- Quan ly Góp ý -->
+	<definition name="dsGopY" extends="baseAdmDef">
+		<put name="body" value="/adm/GopY/list.jsp" />
+	</definition>
+
+<!-- Het quan ly Góp ý -->
+
+</tiles-definitions>

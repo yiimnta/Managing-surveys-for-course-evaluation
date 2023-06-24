@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="model.form.LoginForm" />
+		<form-bean name="dsKhoaHocForm" type="model.form.DanhSachKhoaForm" />
+		<form-bean name="khoaHocForm" type="model.form.KhoaHocForm" />
+		<form-bean name="dsNguoiDungForm" type="model.form.DanhSachNguoiDungForm" />
+		<form-bean name="nguoiDungForm" type="model.form.NguoiDungForm" />
+		<form-bean name="thayDoiMatKhauForm" type="model.form.ThayDoiMatKhauForm" />
+		<form-bean name="dsGiangVienForm" type="model.form.DanhSachGiangVienForm" />
+		<form-bean name="giangVienForm" type="model.form.GiangVienForm" />
+		<form-bean name="dsGiangDayForm" type="model.form.DanhSachGiangDayForm" />
+		<form-bean name="giangDayForm" type="model.form.GiangDayForm" />
+		<form-bean name="dsPhieuDanhGiaForm" type="model.form.DanhSachPhieuDanhGiaForm" />
+		<form-bean name="phieuDanhGiaForm" type="model.form.PhieuDanhGiaForm" />
+		<form-bean name="dsLoaiPhieuForm" type="model.form.DsLoaiPhieuForm" />
+		<form-bean name="loaiPhieuForm" type="model.form.LoaiPhieuForm" />
+		<form-bean name="dsNoiDungForm" type="model.form.DanhSachNoiDungForm" />
+		<form-bean name="noiDungForm" type="model.form.NoiDungForm" />
+		<form-bean name="chiTietNoiDungForm" type="model.form.ChiTietNoiDungForm" />
+		<form-bean name="noiDungConForm" type="model.form.NoiDungConForm" />
+		<form-bean name="dsKetQuaForm" type="model.form.DanhSachKetQuaForm" />
+		<form-bean name="ketQuaForm" type="model.form.KetQuaForm" />
+		<form-bean name="chiTietKetQuaForm" type="model.form.ChiTietKetQuaForm" />
+		<form-bean name="dsChiTietKetQuaForm" type="model.form.DanhSachChiTietKetQuaForm" />
+		<form-bean name="frontDsPhieuDanhGiaForm" type="model.form.FrontDanhSachPhieuDanhGiaForm" />
+		<form-bean name="gopYForm" type="model.form.GopYForm" />
+		<form-bean name="dsGopYForm" type="model.form.DanhSachGopYForm" />
+		<form-bean name="sideBarForm" type="model.form.SideBarForm" />
+		<form-bean name="lopForm" type="model.form.LopForm" />
+		<form-bean name="dsLopForm" type="model.form.DanhSachLopForm" />
+		<form-bean name="dsMonHocForm" type="model.form.DanhSachMonForm" />
+		<form-bean name="monHocForm" type="model.form.MonHocForm" />
+		<form-bean name="dKHPForm" type="model.form.DKHPForm" />
+		<form-bean name="chiTietDKHPForm" type="model.form.ChiTietDKHPForm" />
+	</form-beans>
+	<action-mappings>
+<!-- Login -->
+		<action name="loginForm" input="/front/login.jsp" path="/login_form"
+			scope="request" validate="true" type="action.LoginAction">
+			<forward name="login" path="/front/login.jsp" /> <!-- đăng nhập thất bại-->
+			<forward name="admin" path="/qlAdmin.do" /> <!-- đăng nhập tc vs quyền admin-->
+			<forward name="home" path="/home.do" /> <!-- đăng nhập tc vs quyền sinh viên-->
+		</action>
+<!-- END LOGIN -->
+
+<!-- LOG OUT -->		
+		<action name="loginForm" path="/logOut" scope="request"
+			type="action.LogOutAction">
+			<forward name="login" path="login_form.do" redirect="true" />
+		</action>
+<!-- LOG OUT -->
+
+<!-- admin -->
+		<action name="loginForm" path="/qlAdmin"
+			scope="request" type="action.back.HienThiAdminAction">
+			<forward name="admin" path="homePage" /> <!-- đăng nhập tc vs quyền admin-->
+			<forward name="home" path="/home.do" /> <!-- đăng nhập tc vs quyền sinh viên-->
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+<!-- END admin -->
+
+
+<!-- home -->
+		<action name="loginForm" path="/home"
+			scope="request" type="action.HomeAction">
+			<forward name="home" path="homeFPage" /> 
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+<!-- END home -->
+
+<!-- info user-->
+		<action name="nguoiDungForm"  validate="true" input="infoFPage" path="/info"
+			scope="request" type="action.InfoAction">
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+			<forward name="info" path="infoFPage" /> 
+		</action>
+<!-- END info user -->
+
+<!-- Dang ky hoc phan-->
+		<action name="dKHPForm" path="/dkhp" scope="request" type="action.DKHPAction">
+				<forward name="dkhp" path="/front/dkhp.jsp" /> 
+		</action>
+		
+		<action name="chiTietDKHPForm" path="/themdkhp" scope="request" type="action.ThemDKHPAction"> 
+		</action>
+		
+		<action name="chiTietDKHPForm" path="/xoadkhp" scope="request" type="action.XoaDKHPAction"> 
+		</action>
+		
+		<action name="dKHPForm" path="/luudkhp" scope="request" type="action.LuuDKHPAction"> 
+		</action>
+		
+<!-- End Dang ky hoc phan-->
+
+<!-- sideBar front-->
+		<action name="sideBarForm" path="/sideBar" scope="request" type="action.SideBarAction">
+			<forward name="sidebar" path="/front/shared/sidebar.jsp"/>
+		</action>
+		
+<!-- END sideBar front -->
+
+<!-- phieu danh gia FRONT-->
+		<action name="frontDsPhieuDanhGiaForm" path="/dsPhieuDanhGia"
+			scope="request" type="action.DsPhieuDanhGiaAction">
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+			<forward name="dsPdg" path="dsPdgFPage" /> 
+		</action>
+		
+		<action name="frontDsPhieuDanhGiaForm" path="/phieuDanhGia"
+			scope="request" type="action.PhieuDanhGiaAction">
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+			<forward name="pdg" path="pdgFPage" /> 
+		</action>
+		
+<!-- END phieu danh gia FRONT -->
+
+<!-- Ket Qua FRONT-->
+	<action name="ketQuaForm" path="/themKetQua" type="action.ThemKetQuaAction">
+		</action>
+	
+	<action name="dsChiTietKetQuaForm" path="/xemKetQua" type="action.DsChiTietKetQuaAction">
+			<forward name="list" path="xemKQFPage" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+<!-- End Ket Qua FRONT-->
+
+<!-- Gop Y FRONT-->
+	<action name="gopYForm" path="/gopY" validate="true" input="feedBackFPage" type="action.GopYAction">
+		<forward name="home" path="feedBackFPage" />
+		<forward name="error" path="/error.jsp" />
+	</action>
+<!-- End Gop Y FRONT-->
+
+<!-- Lien he FRONT-->
+	<action name="gopYForm" path="/lienHe" type="action.LienHeAction">
+		<forward name="home" path="contactFPage" />
+	</action>
+<!-- End Lien he FRONT-->
+
+
+<!-- QUAN LY KHOA HOC -->
+		<action name="dsKhoaHocForm" path="/qlKhoaHoc" type="action.back.DsKhoaAction">
+			<forward name="list" path="dsKhoaHoc" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="khoaHocForm" path="/xoaKhoaHoc" type="action.back.XoaKhoaAction">
+		</action>
+		
+		<action name="khoaHocForm" path="/themKhoaHoc" type="action.back.ThemKhoaAction">
+		</action>
+		
+		<action name="khoaHocForm" path="/suaKhoaHoc" type="action.back.SuaKhoaAction">
+		</action>
+
+<!-- END QUAN LY KHOA HOC -->
+		
+
+<!-- QUAN LY NGUOI DUNG -->
+		<action name="dsNguoiDungForm" path="/qlNguoiDung" type="action.back.DsNguoiDungAction">
+			<forward name="list" path="dsNguoiDung" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="nguoiDungForm" path="/xoaNguoiDung" type="action.back.XoaNguoiDungAction">
+		</action>
+		
+		<action name="nguoiDungForm" validate="true" input="themNguoiDung" path="/themNguoiDung" type="action.back.ThemNguoiDungAction">
+			<forward name="list" path="qlNguoiDung.do" redirect="true" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="add" path="themNguoiDung" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="nguoiDungForm" validate="true" input="suaNguoiDung" path="/suaNguoiDung" type="action.back.SuaNguoiDungAction">
+			<forward name="list" path="qlNguoiDung.do" redirect="true" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="update" path="suaNguoiDung" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<!-- Thay doi password -->
+				
+		<action name="thayDoiMatKhauForm" path="/tdPassword" scope="request"
+			type="action.back.ThayDoiMatKhauAction">
+		</action>
+		
+		<!-- end thay đổi password -->
+
+<!-- END QUAN LY NGUOI DUNG -->		
+
+<!-- QUAN LY GIANG VIEN -->
+		<action name="dsGiangVienForm" path="/qlGiangVien" type="action.back.DsGiangVienAction">
+			<forward name="list" path="dsGiangVien" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="giangVienForm" path="/xoaGiangVien" type="action.back.XoaGiangVienAction">
+		</action>
+		
+		<action name="giangVienForm" path="/themGiangVien" type="action.back.ThemGiangVienAction">
+		</action>
+		
+		<action name="giangVienForm" path="/suaGiangVien" type="action.back.SuaGiangVienAction">
+		</action>
+
+<!-- END QUAN LY GIANG VIEN -->
+
+<!-- QUAN LY GIANG DAY -->
+		<action name="dsGiangDayForm" path="/qlGiangDay" type="action.back.DsGiangDayAction">
+			<forward name="list" path="dsGiangDay" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="giangDayForm" path="/xoaGiangDay" type="action.back.XoaGiangDayAction">
+		</action>
+		
+		<action name="giangDayForm" path="/suaTrangThaiGiangDay" type="action.back.SuaTrangThaiGiangDayAction">
+		</action>
+		
+		<action name="giangDayForm" validate="true" input="themGiangDay" path="/themGiangDay" type="action.back.ThemGiangDayAction">
+			<forward name="list" path="qlGiangDay.do" redirect="true" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="add" path="themGiangDay" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="giangDayForm" validate="true" input="suaGiangDay" path="/suaGiangDay" type="action.back.SuaGiangDayAction">
+			<forward name="list" path="qlGiangDay.do" redirect="true" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="update" path="suaGiangDay" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+
+<!-- END QUAN LY GIANG DAY -->
+
+<!-- QUAN LY LOAI PHIEU DANH GIA -->
+		<action name="dsLoaiPhieuForm" path="/qlLoaiPhieu" type="action.back.DsLoaiPhieuAction">
+			<forward name="list" path="dsLoaiPhieu" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="loaiPhieuForm" path="/xoaLoaiPhieu" type="action.back.XoaLoaiPhieuAction">
+		</action>
+		
+		<action name="loaiPhieuForm" path="/themLoaiPhieu" type="action.back.ThemLoaiPhieuAction">
+		</action>
+		
+		<action name="loaiPhieuForm" path="/suaLoaiPhieu" type="action.back.SuaLoaiPhieuAction">
+		</action>
+
+<!-- END QUAN LY LOAI PHIEU DANH GIA -->
+
+<!-- QUAN LY PHIEU DANH GIA -->
+		<action name="dsPhieuDanhGiaForm" path="/qlPhieuDanhGia" type="action.back.DsPhieuDanhGiaAction">
+			<forward name="list" path="dsPhieuDanhGia" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="phieuDanhGiaForm" path="/xoaPhieuDanhGia" type="action.back.XoaPhieuDanhGiaAction">
+		</action>
+		
+		<action name="dsPhieuDanhGiaForm" path="/layPhieuDanhGiaCopy" type="action.back.LayDanhSachPhieuCopyAction">
+		</action>
+		
+		<action name="phieuDanhGiaForm" validate="true" input="themPhieuDanhGia" path="/themPhieuDanhGia" type="action.back.ThemPhieuDanhGiaAction">
+			<forward name="list" path="qlPhieuDanhGia.do" redirect="true" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="add" path="themPhieuDanhGia" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="phieuDanhGiaForm" validate="true" input="suaPhieuDanhGia" path="/suaPhieuDanhGia" type="action.back.SuaPhieuDanhGiaAction">
+			<forward name="list" path="qlPhieuDanhGia.do" redirect="true" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="update" path="suaPhieuDanhGia" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="dsNoiDungForm" path="/xemThongKe" type="action.back.ThongKePhieuAction">
+			<forward name="list" path="thongKePhieu" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+
+<!-- END QUAN LY PHIEU DANH GIA -->	
+
+<!-- QUAN LY  NỘI DUNG PHIEU DANH GIA -->
+
+		<action name="dsNoiDungForm" path="/qlNoiDung" type="action.back.DsNoiDungAction">
+			<forward name="list" path="dsNoiDung" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="dsNoiDungForm" path="/sapXepPhanTu" type="action.back.SapXepPhanTuAction">
+		</action>
+		
+		<action name="noiDungForm" path="/xoaNoiDung" type="action.back.XoaNoiDungAction">
+		</action>
+		
+		<action name="noiDungForm" path="/themNoiDung" type="action.back.ThemNoiDungAction">
+		</action>
+		
+		<action name="noiDungForm" path="/suaNoiDung" type="action.back.SuaNoiDungAction">
+		</action>
+		
+		<action name="chiTietNoiDungForm" path="/xoaChiTietNoiDung" type="action.back.XoaChiTietNoiDungAction">
+		</action>
+		
+		<action name="chiTietNoiDungForm" path="/themChiTietNoiDung" type="action.back.ThemChiTietNoiDungAction">
+		</action>
+		
+		<action name="chiTietNoiDungForm" path="/suaChiTietNoiDung" type="action.back.SuaChiTietNoiDungAction">
+		</action>
+		
+		<action name="chiTietNoiDungForm" path="/suaLoaiChiTietNoiDung" type="action.back.SuaLoaiChiTietNoiDungAction">
+		</action>
+		
+		<action name="noiDungConForm" path="/xoaNoiDungCon" type="action.back.XoaNoiDungConAction">
+		</action>
+		
+		<action name="noiDungConForm" path="/themNoiDungCon" type="action.back.ThemNoiDungConAction">
+		</action>
+		
+		<action name="noiDungConForm" path="/suaNoiDungCon" type="action.back.SuaNoiDungConAction">
+		</action>
+
+<!-- END QUAN LY NỘI DUNG PHIEU DANH GIA -->
+
+<!-- QUAN LY  KET QUA DANH GIA -->
+
+	<action name="dsKetQuaForm" path="/qlKetQua" type="action.back.DsKetQuaAction">
+			<forward name="list" path="dsKetQua" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="ketQuaForm" path="/xoaKetQua" type="action.back.XoaKetQuaAction">
+		</action>
+
+<!-- END QUAN LY  KET QUA DANH GIA -->
+
+<!-- QUAN LY CHI TIET KET QUA DANH GIA -->
+
+	<action name="dsChiTietKetQuaForm" path="/chiTietKetQua" type="action.back.DsChiTietKetQuaAction">
+			<forward name="list" path="dsChiTietKetQua" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+<!-- END QUAN LY CHI TIET KET QUA DANH GIA -->
+
+<!-- QUAN LY  GOP Y  -->
+
+	<action name="dsGopYForm" path="/qlGopY" type="action.back.DsGopYAction">
+			<forward name="list" path="dsGopY" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="gopYForm" path="/xoaGopY" type="action.back.XoaGopYAction">
+		</action>
+
+<!-- END QUAN LY GOP Y -->
+
+
+<!-- QUAN LY LOP -->
+		<action name="dsLopForm" path="/qlLop" type="action.back.DsLopAction">
+			<forward name="list" path="dsLop" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="lopForm" path="/xoaLopHoc" type="action.back.XoaLopAction">
+		</action>
+		
+		<action name="lopForm" path="/themLopHoc" type="action.back.ThemLopAction">
+		</action>
+		
+		<action name="lopForm" path="/suaLopHoc" type="action.back.SuaLopAction">
+		</action>
+
+<!-- END QUAN LY LOP -->
+
+<!-- QUAN LY MON HOC -->
+		<action name="dsMonHocForm" path="/qlMonHoc" type="action.back.DsMonAction">
+			<forward name="list" path="dsMonHoc" />
+			<forward name="login" path="login_form.do" redirect="true" />
+			<forward name="notFound" path="/notFound.jsp" />
+		</action>
+		
+		<action name="monHocForm" path="/xoaMonHoc" type="action.back.XoaMonAction">
+		</action>
+		
+		<action name="monHocForm" path="/themMonHoc" type="action.back.ThemMonAction">
+		</action>
+		
+		<action name="monHocForm" path="/suaMonHoc" type="action.back.SuaMonAction">
+		</action>
+
+<!-- END QUAN LY MON HOC -->
+
+
+
+	</action-mappings>
+	<!-- Controller to call Tiles Request Processor -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+	
+	<message-resources parameter="action.ApplicationResources" />
+	
+		
+	<!-- Include plugin Tiles -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tileDefinitions.xml" />
+	</plug-in>
+
+</struts-config>
