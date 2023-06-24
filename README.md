@@ -14,6 +14,10 @@ Website to managing surveys for course evaluation
 ## Database
 - SQL Server
 
+## Requirements
+- Install Jdk 7 or 8: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+- Tomcat server 6 or 7: https://archive.apache.org/dist/tomcat/
+
 ## Installation Instructions
 [Please read this file](https://github.com/yiimnta/Managing-surveys-for-course-evaluation/blob/main/installation-instructions.pdf)
 
