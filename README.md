@@ -1,6 +1,7 @@
 # Managing-surveys-for-course-evaluation
-Website to managing surveys for course evaluation that use struts 1
-Using MVC model (Model-View-Controller)
+Website to managing surveys for course evaluation
+
+- Using MVC model (Model-View-Controller)
 
 ## Frontend
 - JSP, Javascript, HTML, CSS
@@ -13,4 +14,10 @@ Using MVC model (Model-View-Controller)
 ## Database
 - SQL Server
 
-## How to run
+## Installation Instructions
+[Please read this file](https://github.com/yiimnta/Managing-surveys-for-course-evaluation/blob/main/installation-instructions.pdf)
+
+
+## Contribution:
+- Truong An Nguyen (nguyentruongan.it.dlu@gmail.com)
+- Thien Quoc Ly
